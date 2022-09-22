@@ -19,7 +19,6 @@ import main.java.com.app.mntr.api.Property;
 import main.java.com.app.mntr.api.custom.engine.controller.DataController;
 import main.java.com.app.mntr.api.custom.service.DataServiceCustom;
 import main.java.com.app.mntr.engine.web.WebServer;
-import main.java.com.app.mntr.extension.Validator;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
