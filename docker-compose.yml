@@ -1,8 +1,23 @@
-java:
-  image: openjdk:17-slim
-  volumes:
-    - ./mntrApp-1.0-SNAPSHOT-all.jar:/usr/src/myapp/mntrApp-1.0-SNAPSHOT-all.jar
-    - ./data/:/usr/src/myapp/data
-  command: bash -c "cd /usr/src/myapp/ && java -jar mntrApp-1.0-SNAPSHOT-all.jar"
-  ports:
-    - 8080:8080
+services:
+  java:
+    image: openjdk:17-slim
+    volumes:
+      - ./mntrApp-1.0-SNAPSHOT-all.jar:/usr/src/myapp/mntrApp-1.0-SNAPSHOT-all.jar
+      - ./data/:/usr/src/myapp/data
+    command: bash -c "cd /usr/src/myapp/ && java -jar mntrApp-1.0-SNAPSHOT-all.jar"
+    ports:
+      - 8080:8080
+    depends_on:
+      - "h2"
+    networks:
+      - nw
+  h2:
+    container_name: 'h2'
+    hostname: 'h2'
+    image: 1000kit/h2
+    ports:
+      - "8181:8181"
+    networks:
+      - nw
+networks:
+    nw:

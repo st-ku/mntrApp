@@ -20,7 +20,7 @@ public class Main {
     private static DataSource getDataSource() {
         final HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setJdbcUrl("jdbc:h2:mem:test");
+        dataSource.setJdbcUrl("jdbc:h2://h2:8181/db");
         dataSource.setUsername("SA");
         dataSource.setPassword("");
         return dataSource;
