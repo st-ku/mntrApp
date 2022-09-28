@@ -32,7 +32,7 @@ public class Main {
         // Create the web server config
         final Config webServer = new Config.Builder(Server.Settings.CONFIG_NAME,
                 Arrays.asList(
-                        new Property.Builder(Server.Settings.HOSTNAME, "localhost").build(),
+                        new Property.Builder(Server.Settings.HOSTNAME, "0.0.0.0").build(),
                         new Property.Builder(Constants.Endpoints.DATA, "data").build(),
                         new Property.Builder(Server.Settings.PORT, 8080).build(),
                         new Property.Builder(Server.Settings.BACKLOG, 0).build(),

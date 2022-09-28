@@ -5,4 +5,4 @@ java:
     - ./data/:/usr/src/myapp/data
   command: bash -c "cd /usr/src/myapp/ && java -jar mntrApp-1.0-SNAPSHOT-all.jar"
   ports:
-    - "8000"
+    - 8080:8080
