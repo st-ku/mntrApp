@@ -72,7 +72,7 @@ public final class DbRepositoryCustom implements RepositoryCustom {
                 return dataModels.stream();
             }
         } catch (final SQLException e) {
-            throw new RuntimeException(RECEIVED_CONFIG_NAMES_ERROR, e);
+            throw new RuntimeException(e);
         }
     }
 
