@@ -11,7 +11,6 @@
 package main.java.com.app.mntr.api.custom.engine.controller;
 
 import com.sun.net.httpserver.HttpExchange;
-import main.java.com.app.mntr.api.ConfigService;
 
 import main.java.com.app.mntr.api.custom.engine.OperationResponse;
 
@@ -31,7 +30,7 @@ import java.util.logging.Logger;
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
 import static java.net.HttpURLConnection.HTTP_OK;
-import static main.java.com.app.mntr.engine.web.Constants.Header.APPLICATION_JSON;
+import static main.java.com.app.mntr.api.custom.engine.Constants.Header.APPLICATION_JSON;
 
 /**
  * Provides a basic functionality for all controllers.

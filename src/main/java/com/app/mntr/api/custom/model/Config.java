@@ -8,8 +8,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-package main.java.com.app.mntr.api;
+package main.java.com.app.mntr.api.custom.model;
 
+import main.java.com.app.mntr.api.Configurable;
 import main.java.com.app.mntr.extension.Validator;
 import com.github.cliftonlabs.json_simple.JsonObject;
 

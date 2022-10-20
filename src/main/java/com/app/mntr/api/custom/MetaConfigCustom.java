@@ -10,20 +10,18 @@
  * limitations under the License. */
 package main.java.com.app.mntr.api.custom;
 
-import main.java.com.app.mntr.api.Config;
-import main.java.com.app.mntr.api.custom.model.DataModel;
+import main.java.com.app.mntr.api.custom.model.Config;
 import main.java.com.app.mntr.api.custom.repository.DbRepositoryCustom;
 import main.java.com.app.mntr.api.custom.repository.RepositoryCustom;
 import main.java.com.app.mntr.api.custom.service.DataServiceCustom;
 import main.java.com.app.mntr.api.custom.service.DataServiceCustomImpl;
-import main.java.com.app.mntr.engine.web.WebServer;
+import main.java.com.app.mntr.api.custom.engine.WebServer;
 import main.java.com.app.mntr.extension.Validator;
 
 import javax.sql.DataSource;
 import java.io.Closeable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import static main.java.com.app.mntr.Constants.Messages.META_CONFIG_ERROR;
 
@@ -32,11 +30,8 @@ import static main.java.com.app.mntr.Constants.Messages.META_CONFIG_ERROR;
  */
 public final class MetaConfigCustom implements Closeable {
     private final WebServer webServer;
-    private final DataServiceCustom dataServiceCustom;
-
-    private MetaConfigCustom(final WebServer webServer, final DataServiceCustom dataServiceCustom) {
+    private MetaConfigCustom(final WebServer webServer) {
         this.webServer = webServer;
-        this.dataServiceCustom = dataServiceCustom;
     }
 
 
@@ -55,7 +50,6 @@ public final class MetaConfigCustom implements Closeable {
      * Wraps and builds the instance of the core configuration class.
      */
     public final static class Builder {
-        private Config webClient;
         private Config webConfig;
         private Map<String, String> dataMapping;
         private Map<String, Object> dbSettings;
@@ -67,17 +61,6 @@ public final class MetaConfigCustom implements Closeable {
          */
         public Builder() {
             this.isDefaultConfig = false;
-        }
-
-        /**
-         * Constructs the core configuration class with the configuration of a web client.
-         *
-         * @param config a configuration a web client.
-         * @return a builder of the core configuration class.
-         */
-        public Builder webClient(final Config config) {
-            this.webClient = Validator.of(config).get();
-            return this;
         }
 
         /**
@@ -158,7 +141,7 @@ public final class MetaConfigCustom implements Closeable {
                     webServer = main.java.com.app.mntr.api.custom.engine.WebServers.newServer(webConfig, dataServiceCustom).start();
                 }
                 // Create the main instance
-                return new MetaConfigCustom(webServer, dataServiceCustom);
+                return new MetaConfigCustom(webServer);
             } catch (final Exception e) {
                 throw new RuntimeException(META_CONFIG_ERROR, e);
             }

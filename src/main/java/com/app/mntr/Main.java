@@ -1,8 +1,8 @@
 package main.java.com.app.mntr;
 
 import com.zaxxer.hikari.HikariDataSource;
-import main.java.com.app.mntr.api.Config;
-import main.java.com.app.mntr.api.Property;
+import main.java.com.app.mntr.api.custom.model.Config;
+import main.java.com.app.mntr.api.custom.model.Property;
 import main.java.com.app.mntr.api.custom.MetaConfigCustom;
 import main.java.com.app.mntr.api.custom.engine.Server;
 

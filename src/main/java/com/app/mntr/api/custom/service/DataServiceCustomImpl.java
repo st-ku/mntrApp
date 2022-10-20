@@ -10,12 +10,10 @@
  * limitations under the License. */
 package main.java.com.app.mntr.api.custom.service;
 
-import main.java.com.app.mntr.api.Config;
 import main.java.com.app.mntr.api.custom.model.DataModel;
 import main.java.com.app.mntr.api.custom.repository.RepositoryCustom;
 
 import java.util.Random;
-import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 /**

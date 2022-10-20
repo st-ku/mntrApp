@@ -10,6 +10,7 @@
  * limitations under the License. */
 package main.java.com.app.mntr.api;
 
+import main.java.com.app.mntr.api.custom.model.Property;
 import main.java.com.app.mntr.extension.ExtJsonable;
 import main.java.com.app.mntr.extension.Validator;
 import com.github.cliftonlabs.json_simple.JsonArray;
@@ -31,7 +32,7 @@ import static main.java.com.app.mntr.Constants.Messages.CREATE_HELPER_CLASS_ERRO
  *
  * @see ExtJsonable for more information.
  */
-interface Configurable extends ExtJsonable {
+public interface Configurable extends ExtJsonable {
     /**
      * Returns attributes which belong to configurations.
      *
@@ -105,7 +106,7 @@ interface Configurable extends ExtJsonable {
          * @param jsonObject a raw json object.
          * @return attributes as a map.
          */
-        static Optional<Map<String, String>> getAttributes(final JsonObject jsonObject) {
+        public static Optional<Map<String, String>> getAttributes(final JsonObject jsonObject) {
             final JsonObject jsonAttributes = (JsonObject) jsonObject.get("attributes");
             if (jsonAttributes != null) {
                 final Map<String, String> attributes = new HashMap<>();
@@ -125,7 +126,7 @@ interface Configurable extends ExtJsonable {
          * @param jsonObject a raw json object.
          * @return properties as a stream.
          */
-        static Stream<Property> getProperties(final JsonObject jsonObject) {
+        public static Stream<Property> getProperties(final JsonObject jsonObject) {
             final JsonArray jsonProperties = (JsonArray) jsonObject.get("properties");
             return jsonProperties != null ?
                     jsonProperties.stream().map(json -> new Property.Builder((JsonObject) json).build()) :
@@ -139,7 +140,7 @@ interface Configurable extends ExtJsonable {
          * @param name       a parameter name.
          * @return a value.
          */
-        static long getLong(final JsonObject jsonObject, final String name) {
+        public static long getLong(final JsonObject jsonObject, final String name) {
             final Object value = jsonObject.get(name);
             return value != null ? ((BigDecimal) value).longValue() : 0;
         }
@@ -151,7 +152,7 @@ interface Configurable extends ExtJsonable {
          * @param stream a stream of source properties.
          * @return updated properties.
          */
-        static Collection<Property> deleteProperties(final String[] paths, final Stream<Property> stream) {
+        public static Collection<Property> deleteProperties(final String[] paths, final Stream<Property> stream) {
             return deleteByPath(0, paths, stream);
         }
 
@@ -161,8 +162,8 @@ interface Configurable extends ExtJsonable {
          * @param paths  path to properties.
          * @param source properties to set.
          */
-        static void setProperties(final Collection<Property> target, final String[] paths,
-                                  final Collection<Property> source) {
+        public static void setProperties(final Collection<Property> target, final String[] paths,
+                                         final Collection<Property> source) {
             final String[] propertyPaths = Validator.of(paths).get();
             if (propertyPaths.length > 0) {
                 setByPath(target, 0, paths, source);

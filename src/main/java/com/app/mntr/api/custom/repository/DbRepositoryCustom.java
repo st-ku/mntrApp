@@ -82,10 +82,9 @@ public final class DbRepositoryCustom implements RepositoryCustom {
     @Override
     public void saveAndFlush(final Stream<DataModel> stream) {
         Connection connection = null;
-        Stream<DataModel> dataStream = Stream.empty();
         try {
             connection = JDBCUtils.open(dataSource);
-            dataStream = Arrays.stream(saveAndFlush(connection, stream.toArray(DataModel[]::new)));
+            saveAndFlush(connection, stream.toArray(DataModel[]::new));
         } catch (final SQLException e) {
             JDBCUtils.rollback(connection, e);
         } finally {

@@ -8,19 +8,21 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-package main.java.com.app.mntr.engine.web.server;
+package main.java.com.app.mntr.api.custom.engine;
 
 /**
- * Extends the basic exception to be used as an invalid request exception.
+ * Provides basic methods for a web server.
  */
-final class InvalidRequestException extends ConfigException {
+public interface WebServer {
     /**
-     * Constructs an exception with a code and a message.
+     * Starts a web server and returns an instance.
      *
-     * @param code a code.
-     * @param message a message.
+     * @return a web server.
      */
-    InvalidRequestException(final int code, final String message) {
-        super(code, message);
-    }
+    WebServer start();
+
+    /**
+     * Stops a web server
+     */
+    void stop();
 }

@@ -15,7 +15,7 @@ import main.java.com.app.mntr.api.custom.engine.OperationResponse;
 import main.java.com.app.mntr.api.custom.engine.exception.MethodNotAllowedException;
 import main.java.com.app.mntr.api.custom.model.DataModel;
 import main.java.com.app.mntr.api.custom.service.DataServiceCustom;
-import main.java.com.app.mntr.engine.web.Constants;
+import main.java.com.app.mntr.api.custom.engine.Constants;
 import main.java.com.app.mntr.extension.WebUtils;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static java.net.HttpURLConnection.HTTP_BAD_METHOD;
-import static main.java.com.app.mntr.engine.web.Constants.Method.GET;
+import static main.java.com.app.mntr.api.custom.engine.Constants.Method.GET;
 
 /**
  * Provides a handler functionality for the POST accept method.

@@ -10,8 +10,6 @@
  * limitations under the License. */
 package main.java.com.app.mntr.api.custom.repository;
 
-import main.java.com.app.mntr.api.PageRequest;
-import main.java.com.app.mntr.api.PageResponse;
 import main.java.com.app.mntr.api.custom.model.DataModel;
 
 import java.util.stream.Stream;

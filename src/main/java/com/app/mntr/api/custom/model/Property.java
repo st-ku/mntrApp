@@ -8,8 +8,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-package main.java.com.app.mntr.api;
+package main.java.com.app.mntr.api.custom.model;
 
+import main.java.com.app.mntr.api.Configurable;
 import main.java.com.app.mntr.extension.Validator;
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonObject;
@@ -290,7 +291,7 @@ public final class Property implements Configurable {
      *
      * @return a reference to properties.
      */
-    Collection<Property> properties() {
+    public Collection<Property> properties() {
         return properties;
     }
 
@@ -343,7 +344,7 @@ public final class Property implements Configurable {
                 this.updated = getLong(prototype, "updated");
             }
             ConfigBuilder.getAttributes(prototype).ifPresent(this.attributes::putAll);
-            this.properties.addAll(ConfigBuilder.getProperties(prototype).collect(Collectors.toList()));
+            this.properties.addAll(ConfigBuilder.getProperties(prototype).toList());
         }
 
         /**
