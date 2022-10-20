@@ -82,23 +82,6 @@ public final class WebUtils {
     }
 
     /**
-     * Returns a param that is a part of a request.
-     *
-     * @param uri   an URI with the query.
-     * @param param a param to get a value of.
-     * @return a value of a param.
-     */
-    public static Optional<String> getRequestParam(final URI uri, final String param) {
-        final String query = uri.getQuery();
-        return query != null ?
-                Arrays.stream(query.split("&")).
-                        filter(q -> q.contains(param)).
-                        map(p -> decode(p.split("=")[1], StandardCharsets.UTF_8)).
-                        findFirst() :
-                Optional.empty();
-    }
-
-    /**
      * Returns values belong to the param.
      *
      * @param param a param to get a value of.
@@ -110,15 +93,4 @@ public final class WebUtils {
         return ((JsonArray) Jsoner.deserialize(json)).stream().map(Objects::toString);
     }
 
-    /**
-     * Returns a value belongs to the param.
-     *
-     * @param param a param to get a value of.
-     * @return a json value.
-     * @throws JsonException when a parser encounters a problem.
-     */
-    public static JsonObject getValue(final String param) throws JsonException {
-        final String json = new String(Base64.getDecoder().decode(param), StandardCharsets.UTF_8);
-        return (JsonObject) Jsoner.deserialize(json);
-    }
 }
