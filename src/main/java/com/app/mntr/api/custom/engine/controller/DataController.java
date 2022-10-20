@@ -42,8 +42,6 @@ public final class DataController extends AbstractController {
      */
     @Override
     void execute(final HttpExchange httpExchange) throws IOException {
-        final URI uri = httpExchange.getRequestURI();
-        final String method = httpExchange.getRequestMethod();
         if (Constants.Method.POST.equals(httpExchange.getRequestMethod())) {
             final OperationResponse<String> response = WebUtils.getPathParams(httpExchange.getRequestURI(), apiPath).
                     findAny().

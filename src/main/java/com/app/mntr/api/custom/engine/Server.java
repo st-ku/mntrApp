@@ -144,18 +144,6 @@ public final class Server implements WebServer {
         final String acceptApi = apiPath + acceptConfigEndpoint;
         httpsServer.createContext(acceptApi,
                 new DataController.Builder(acceptApi, dataServiceCustom).build()::handle);
-//        // Get the config names endpoint
-//        final String configNamesEndpoint = serverConfig.getProperty(Constants.Endpoints.CONFIG_NAMES).
-//                map(Property::getValue).
-//                orElse(Constants.Endpoints.CONFIG_NAMES_VALUE);
-//        httpsServer.createContext(apiPath + configNamesEndpoint,
-//                new ConfigNamesController.Builder(configService).build()::handle);
-//        // Get the config endpoint
-//        final String configEndpoint = serverConfig.getProperty(Constants.Endpoints.CONFIG).
-//                map(Property::getValue).
-//                orElse(Constants.Endpoints.CONFIG_VALUE);
-//        httpsServer.createContext(apiPath + configEndpoint,
-//                new ConfigController.Builder(configService).build()::handle);
         httpsServer.setExecutor(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()));
         httpsServer.setHttpsConfigurator(new HttpsConfigurator(getSSLContext(config)) {
 

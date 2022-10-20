@@ -27,7 +27,6 @@ public final class WebServers {
     /**
      * Returns a default web server.
      *
-     * @param configService a configuration service.
      * @return a web server.
      * @throws Exception when a web server encounters a problem.
      */

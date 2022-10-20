@@ -30,7 +30,6 @@ public interface RepositoryCustom {
     /**
      * Saves and flushes configuration models.
      *
-     * @param stream a stream of configuration models.
      * @return a stream of updated configuration models.
      */
     void saveAndFlush(final Stream<DataModel> dataModels);
