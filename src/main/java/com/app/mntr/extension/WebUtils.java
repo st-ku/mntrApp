@@ -12,7 +12,6 @@ package main.java.com.app.mntr.extension;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonException;
-import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 import main.java.com.app.mntr.Constants;
 
@@ -24,7 +23,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 /**

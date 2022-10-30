@@ -10,11 +10,11 @@
  * limitations under the License. */
 package main.java.com.app.mntr.api.custom.model;
 
-import main.java.com.app.mntr.api.Configurable;
-import main.java.com.app.mntr.extension.Validator;
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
+import main.java.com.app.mntr.api.Configurable;
+import main.java.com.app.mntr.extension.Validator;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -27,7 +27,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static main.java.com.app.mntr.Constants.Messages.WRONG_ID_VALUE;

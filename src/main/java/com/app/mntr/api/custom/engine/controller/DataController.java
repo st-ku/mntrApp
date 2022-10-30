@@ -11,15 +11,14 @@
 package main.java.com.app.mntr.api.custom.engine.controller;
 
 import com.sun.net.httpserver.HttpExchange;
+import main.java.com.app.mntr.api.custom.engine.Constants;
 import main.java.com.app.mntr.api.custom.engine.OperationResponse;
 import main.java.com.app.mntr.api.custom.engine.exception.MethodNotAllowedException;
 import main.java.com.app.mntr.api.custom.model.DataModel;
 import main.java.com.app.mntr.api.custom.service.DataServiceCustom;
-import main.java.com.app.mntr.api.custom.engine.Constants;
 import main.java.com.app.mntr.extension.WebUtils;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,40 +85,6 @@ public final class DataController extends AbstractController {
                     orElseGet(() -> new OperationResponse.Builder<String>().error(main.java.com.app.mntr.Constants.Messages.PATH_PARAM_NOT_PRESENT).build());
             writeResponse(httpExchange, response);
         }
-//
-//        if (Constants.Method.DELETE.equals(httpExchange.getRequestMethod())) {
-//            final OperationResponse<String> response = WebUtils.getPathParams(httpExchange.getRequestURI(), apiPath).
-//                    findAny().
-//                    map(param -> {
-//                        try {
-//                            configService.delete(param);
-//                            final String result = String.format(main.java.com.app.mntr.Constants.Messages.CONFIG_DELETED, param);
-//                            return new OperationResponse.Builder<String>().result(result).build();
-//                        } catch (final Exception e) {
-//                            LOGGER.log(Level.SEVERE, e.toString());
-//                            return new OperationResponse.Builder<String>().error(main.java.com.app.mntr.Constants.Messages.STRING_TO_JSON_ERROR).build();
-//                        }
-//                    }).
-//                    orElseGet(() -> new OperationResponse.Builder<String>().error(main.java.com.app.mntr.Constants.Messages.PATH_PARAM_NOT_PRESENT).build());
-//            writeResponse(httpExchange, response);
-//        }
-//
-//        if (Constants.Method.PUT.equals(httpExchange.getRequestMethod())) {
-//            final OperationResponse<String> response = WebUtils.getPathParams(httpExchange.getRequestURI(), apiPath).
-//                    findAny().
-//                    map(param -> {
-//                        try {
-//                            configService.update(param, WebUtils.getValues(param));
-//                            final String result = String.format(main.java.com.app.mntr.Constants.Messages.CONFIG_UPDATED, param);
-//                            return new OperationResponse.Builder<String>().result(result).build();
-//                        } catch (final Exception e) {
-//                            LOGGER.log(Level.SEVERE, e.toString());
-//                            return new OperationResponse.Builder<String>().error(main.java.com.app.mntr.Constants.Messages.STRING_TO_JSON_ERROR).build();
-//                        }
-//                    }).
-//                    orElseGet(() -> new OperationResponse.Builder<String>().error(main.java.com.app.mntr.Constants.Messages.PATH_PARAM_NOT_PRESENT).build());
-//            writeResponse(httpExchange, response);
-//        }
         else {
             throw new MethodNotAllowedException(HTTP_BAD_METHOD, main.java.com.app.mntr.Constants.Messages.METHOD_NOT_ALLOWED);
         }

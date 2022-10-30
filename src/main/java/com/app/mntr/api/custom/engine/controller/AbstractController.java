@@ -37,8 +37,6 @@ import static main.java.com.app.mntr.api.custom.engine.Constants.Header.APPLICAT
  */
 abstract class AbstractController {
     private final static Logger LOGGER = Logger.getLogger(AbstractController.class.getSimpleName());
-    final static String REQ_PARAM_NAMES = "names";
-    final static String REQ_PARAM_PAGE_REQUEST = "page_request";
     final String apiPath;
     final DataServiceCustom configService;
 

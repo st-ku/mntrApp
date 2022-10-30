@@ -87,9 +87,7 @@ public final class Constants {
         public static final String METHOD_NOT_ALLOWED = "Method not allowed.";
         public static final String PATH_PARAM_NOT_PRESENT = "Path param is not presented.";
         public static final String DATA_ACCEPTED = "Accepted '%s' data.";
-        public static final String CREATE_CONFIG_TABLE_ERROR = "'Configs' table can not be created.";
         public static final String CREATE_DATA_TABLE_ERROR = "'Data' table can not be created.";
-        public static final String RECEIVED_CONFIG_NAMES_ERROR = "Config names can not be received.";
         public static final String DB_ERROR = "Database error.";
         public static final String DB_ROLLBACK_ERROR = "Database rollback error.";
         public static final String DB_CONNECTION_ERROR = "Database connection error.";
